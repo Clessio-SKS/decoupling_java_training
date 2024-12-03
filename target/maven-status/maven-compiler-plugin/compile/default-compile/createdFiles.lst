@@ -1,0 +1,9 @@
+fr\lernejo\logger\LoggerFactory.class
+fr\lernejo\guessgame\Simulation.class
+fr\lernejo\logger\Logger.class
+fr\lernejo\guessgame\Launcher.class
+fr\lernejo\guessgame\HumanPlayer.class
+fr\lernejo\guessgame\Player.class
+fr\lernejo\logger\ConsoleLogger.class
+fr\lernejo\guessgame\ComputerPlayer.class
+fr\lernejo\logger\ContextualLogger.class
