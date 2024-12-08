@@ -1,0 +1,12 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+maven_training,fr.lernejo.logger,ConsoleLogger,7,0,0,0,3,0,2,0,2,0
+maven_training,fr.lernejo.logger,LoggerFactory,18,0,0,0,4,0,4,0,4,0
+maven_training,fr.lernejo.logger,FilteredLogger,19,0,2,0,7,0,3,0,2,0
+maven_training,fr.lernejo.logger,ContextualLogger,27,0,0,0,8,0,2,0,2,0
+maven_training,fr.lernejo.logger,CompositeLogger,22,0,2,0,7,0,3,0,2,0
+maven_training,fr.lernejo.guessgame,ComputerPlayer,62,0,2,0,12,0,4,0,3,0
+maven_training,fr.lernejo.guessgame,HumanPlayer,33,0,2,0,9,0,4,0,3,0
+maven_training,fr.lernejo.guessgame,Simulation,122,0,10,0,32,0,9,0,4,0
+maven_training,fr.lernejo.guessgame,Launcher,95,0,8,0,28,0,8,0,4,0
+maven_training,fr.lernejo,Sample.Operation,0,15,0,0,0,2,0,1,0,1
+maven_training,fr.lernejo,Sample,0,14,0,2,0,4,0,3,0,2

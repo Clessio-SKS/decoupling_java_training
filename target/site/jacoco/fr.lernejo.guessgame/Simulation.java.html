@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Simulation.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">maven_training</a> &gt; <a href="index.source.html" class="el_package">fr.lernejo.guessgame</a> &gt; <span class="el_source">Simulation.java</span></div><h1>Simulation.java</h1><pre class="source lang-java linenums">package fr.lernejo.guessgame;
+
+import fr.lernejo.logger.Logger;
+import fr.lernejo.logger.LoggerFactory;
+
+public class Simulation {
+<span class="nc" id="L7">    private final Logger logger = LoggerFactory.getLogger(&quot;simulation&quot;);</span>
+    private final Player player;
+    private long numberToGuess;
+
+<span class="nc" id="L11">    public Simulation(Player player) {</span>
+<span class="nc" id="L12">        this.player = player;</span>
+<span class="nc" id="L13">    }</span>
+
+    public void initialize(long numberToGuess) {
+<span class="nc" id="L16">        this.numberToGuess = numberToGuess;</span>
+<span class="nc" id="L17">    }</span>
+
+    private boolean nextRound() {
+<span class="nc" id="L20">        long guess = player.askNextGuess();</span>
+<span class="nc bnc" id="L21" title="All 2 branches missed.">        if (guess == numberToGuess) {</span>
+<span class="nc" id="L22">            logger.log(&quot;Correct!&quot;);</span>
+<span class="nc" id="L23">            return true;</span>
+        }
+<span class="nc bnc" id="L25" title="All 2 branches missed.">        if (guess &lt; numberToGuess) {</span>
+<span class="nc" id="L26">            logger.log(&quot;The number is greater!&quot;);</span>
+<span class="nc" id="L27">            player.respond(true);</span>
+        } else {
+<span class="nc" id="L29">            logger.log(&quot;The number is lower!&quot;);</span>
+<span class="nc" id="L30">            player.respond(false);</span>
+        }
+<span class="nc" id="L32">        return false;</span>
+    }
+
+    public void loopUntilPlayerSucceed(long maxIterations) {
+<span class="nc" id="L36">        long startTime = System.currentTimeMillis();</span>
+<span class="nc" id="L37">        boolean success = false;</span>
+<span class="nc" id="L38">        int iterations = 0;</span>
+
+<span class="nc bnc" id="L40" title="All 4 branches missed.">        while (iterations &lt; maxIterations &amp;&amp; !success) {</span>
+<span class="nc" id="L41">            success = nextRound();</span>
+<span class="nc" id="L42">            iterations++;</span>
+        }
+
+<span class="nc" id="L45">        long endTime = System.currentTimeMillis();</span>
+<span class="nc" id="L46">        long duration = endTime - startTime;</span>
+
+<span class="nc" id="L48">        String timeTaken = String.format(&quot;%02d:%02d.%03d&quot;,</span>
+<span class="nc" id="L49">            (duration / 60000) % 60,</span>
+<span class="nc" id="L50">            (duration / 1000) % 60,</span>
+<span class="nc" id="L51">            duration % 1000);</span>
+
+<span class="nc bnc" id="L53" title="All 2 branches missed.">        if (success) {</span>
+<span class="nc" id="L54">            logger.log(&quot;You won in &quot; + iterations + &quot; iterations! Time taken: &quot; + timeTaken);</span>
+        } else {
+<span class="nc" id="L56">            logger.log(&quot;Game over! Player did not guess the number within the limit. Time taken: &quot; + timeTaken);</span>
+        }
+<span class="nc" id="L58">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>
