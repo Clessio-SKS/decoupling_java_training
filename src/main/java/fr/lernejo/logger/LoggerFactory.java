@@ -10,4 +10,8 @@ public class LoggerFactory {
     public static Logger createFilteredLogger(Logger logger, String keyword) {
         return new FilteredLogger(logger, keyword);
     }
+
+    public static Logger getLogger(String name) {
+        return new ConsoleLogger();
+    }
 }
